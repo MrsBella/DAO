@@ -12,6 +12,7 @@ public class UserDao {
     private static final String READ_USER_QUERY = "SELECT * FROM users WHERE id = ?";
     private static final String UPDATE_USER_QUERY = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
     private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE id = ?";
+    private static final String FIND_ALL_USERS = "SELECT * FROM users";
 
 
     public String hashPassword(String password) {
@@ -52,7 +53,6 @@ public class UserDao {
                 String userName = rs.getString("username");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                System.out.println(userId + " " + userName + " " + email + " " + password);
                 return new User(userId, userName, email, password);
             }
         } catch (SQLException e) {
@@ -105,7 +105,7 @@ public class UserDao {
         try (Connection conn = DbUtil.getConnection()) {
 
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+            ResultSet rs = stmt.executeQuery(FIND_ALL_USERS);
 
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -120,10 +120,8 @@ public class UserDao {
             }
 
             for (int i = 0; i < users.length; i++) {
-                System.out.println(users[i].getId() + "   " + users[i].getUserName() + "   " + users[i].getEmail() + "   " + users[i].getPassword());
+                System.out.println(users[i].toString());
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,30 @@ public class MainDao {
 
         UserDao userDao = new UserDao();
 
-        userDao.findAll();
+//        User user = new User();               // sprawdzenie metody create
+//        user.setUserName("NewUser");
+//        user.setEmail("newnew@gmail.com");
+//        user.setPassword("password");
+//
+//        userDao.create(user);
+
+
+//        User user = userDao.read(2);         // sprawdzenie metody read
+//        System.out.println(user);
+//
+//        User user = userDao.read(1);
+//        System.out.println(user);
+
+
+//        User user = userDao.read(4);         // sprawdzenie metody update
+//        user.setUserName("Janek");
+//        user.setEmail("jan.kowalski@wp.pl");
+//        user.setPassword("haslo");
+//
+//        userDao.update(user);
+
+
+
     }
 }
 

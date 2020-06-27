@@ -11,6 +11,10 @@ public class User {
 
     }
 
+    public String toString() {
+        return "User: ID = " + getId() + ", USERNAME = " + getUserName() + ", EMAIL: = " + getEmail();
+    }
+
     public User(int id, String userName, String email, String password) {
         this.id = id;
         this.userName = userName;
